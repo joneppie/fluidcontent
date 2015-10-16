@@ -134,12 +134,14 @@ class ConfigurationService extends FluxService implements SingletonInterface {
 	 * @return string
 	 */
 	public function getPageTsConfig() {
-		$pageTsConfig = '';
+		$this->backupPageUidForConfigurationManager();
+		$pageTsConfig = $this->renderPageTypoScriptForPageUid($this->pageUidBackup);
+/*		$pageTsConfig = '';
 		$templates = $this->getAllRootTypoScriptTemplates();
 		foreach ($templates as $template) {
 			$pageUid = (integer) $template['pid'];
 			$pageTsConfig .= $this->renderPageTypoScriptForPageUid($pageUid);
-		}
+		}*/
 		return $pageTsConfig;
 	}
 

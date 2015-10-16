@@ -55,10 +55,10 @@ class ConfigurationServiceTest extends UnitTestCase {
 		/** @var ConfigurationService|\PHPUnit_Framework_MockObject_MockObject $service */
 		$service = $this->getMock(
 			'FluidTYPO3\\Fluidcontent\\Service\\ConfigurationService',
-			array('getAllRootTypoScriptTemplates', 'renderPageTypoScriptForPageUid'),
+			array(/*'getAllRootTypoScriptTemplates',*/ 'renderPageTypoScriptForPageUid'),
 			array(), '', FALSE
 		);
-		$service->expects($this->once())->method('getAllRootTypoScriptTemplates')->willReturn(array(array('pid' => 1)));
+// 		$service->expects($this->once())->method('getAllRootTypoScriptTemplates')->willReturn(array(array('pid' => 1)));
 		$service->expects($this->once())->method('renderPageTypoScriptForPageUid')->willReturn('test');
 		$service->injectConfigurationManager(GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager')
 			->get('TYPO3\\CMS\\Extbase\\Configuration\\ConfigurationManagerInterface'));
